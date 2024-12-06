@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated MCQs</title>
+    
+    <!-- Include MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <h1>Generated MCQs</h1>
+
+    <div id="mcq-content">
+        {% for mcq in mcqs %}
+            <div>
+                <h3>MCQ {{ loop.index }}:</h3>
+                <!-- Render LaTeX content as block math -->
+                <p>{{ mcq | safe }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Reprocess LaTeX math expressions using MathJax -->
+    <script type="text/javascript">
+        MathJax.typeset();  // Reprocess the LaTeX math content
+    </script>
+
+</body>
+</html>
